@@ -1,0 +1,20 @@
+{
+  "updated": "2026-11-15T12:00:00Z",
+  "publisher": "Xono Space",
+  "apps": [
+    {
+      "id": "xono-browser",
+      "name": "Xono Browser",
+      "dev": "Xono Space",
+      "version": "1.2",
+      "versionCode": 12,
+      "package": "com.xono.browser",
+      "size": "8.4 MB",
+      "category": "Browser",
+      "description": "Браузер от Xono Space со стилистикой Material You. Вкладки, история, загрузки, Code Lab для HTML/CSS/JS и встроенный просмотр файлов.",
+      "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><defs><linearGradient id='xonoBg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#8B6DD4'/><stop offset='1' stop-color='#4F378B'/></linearGradient></defs><rect width='128' height='128' rx='28' fill='url(#xonoBg)'/><path d='M38 38 L90 90 M90 38 L38 90' stroke='#F5EFFF' stroke-width='14' stroke-linecap='round'/><circle cx='64' cy='64' r='10' fill='#EFB8C8'/></svg>",
+      "apkUrl": "https://davidchekushka-hue.github.io/xonocatalog/apk/xono-browser-1.2.apk",
+      "filename": "xono-browser-1.2.apk"
+    }
+  ]
+}
