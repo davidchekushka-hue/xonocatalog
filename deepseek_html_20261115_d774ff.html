@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#141218">
+<title>Xono Store</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238B6DD4'/%3E%3Cstop offset='1' stop-color='%234F378B'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cpath d='M10 13h12a1.5 1.5 0 0 1 1.5 1.5l-.8 8a1.5 1.5 0 0 1-1.5 1.5H10.8a1.5 1.5 0 0 1-1.5-1.5l-.8-8A1.5 1.5 0 0 1 10 13z' fill='%23F5EFFF'/%3E%3Cpath d='M12.5 13v-2a3.5 3.5 0 1 1 7 0v2' fill='none' stroke='%23F5EFFF' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--primary:#6750A4;--on-primary:#FFFFFF;--primary-container:#EADDFF;--on-primary-container:#21005D;--secondary-container:#E8DEF8;--on-secondary-container:#1D192B;--tertiary-container:#FFD8E4;--on-tertiary-container:#31111D;--surface:#FEF7FF;--on-surface:#1D1B20;--on-surface-variant:#49454F;--surface-container-low:#F7F2FA;--surface-container:#F3EDF7;--surface-container-high:#ECE6F0;--surface-container-highest:#E6E0E9;--outline-variant:#CAC4D0;--inverse-surface:#322F35;--inverse-on-surface:#F5EFF7;--shape-md:12px;--shape-lg:16px;--shape-xl:28px;--shape-full:999px;--ease:cubic-bezier(.2,0,0,1);--font:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color-scheme:light}
+body.dark{--primary:#D0BCFF;--on-primary:#381E72;--primary-container:#4F378B;--on-primary-container:#EADDFF;--secondary-container:#4A4458;--on-secondary-container:#E8DEF8;--tertiary-container:#633B48;--on-tertiary-container:#FFD8E4;--surface:#141218;--on-surface:#E6E0E9;--on-surface-variant:#CAC4D0;--surface-container-low:#1D1B20;--surface-container:#211F26;--surface-container-high:#2B2930;--surface-container-highest:#36343B;--outline-variant:#49454F;--inverse-surface:#E6E0E9;--inverse-on-surface:#322F35;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;min-height:100%}
+body{font-family:var(--font);background:var(--surface);color:var(--on-surface);padding:0 0 40px;padding-top:env(safe-area-inset-top);padding-bottom:calc(40px + env(safe-area-inset-bottom));transition:background-color .3s ease,color .3s ease;overflow-x:hidden}
+button{cursor:pointer;font:inherit;color:inherit;border:0;background:none;position:relative;overflow:hidden}
+:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+.appbar{position:sticky;top:0;z-index:10;background:var(--surface-container);padding:14px 20px 12px;border-bottom:1px solid var(--outline-variant);display:flex;align-items:center;gap:12px}
+.brand-logo{width:36px;height:36px;flex-shrink:0;display:block}
+.appbar h1{margin:0;font-size:20px;font-weight:700;letter-spacing:-.02em}
+.appbar .sub{font-size:11px;color:var(--on-surface-variant);margin-top:1px}
+.appbar .spacer{flex:1}
+.icon-btn{width:42px;height:42px;border-radius:var(--shape-full);display:grid;place-items:center;color:var(--on-surface-variant);transition:background-color .15s var(--ease)}
+.icon-btn:hover{background:var(--surface-container-high)}
+.icon-btn svg{width:22px;height:22px}
+.icon-btn.spinning svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.hero{background:linear-gradient(135deg,var(--primary-container),var(--tertiary-container));color:var(--on-primary-container);border-radius:var(--shape-xl);padding:22px;display:flex;align-items:center;gap:16px;margin-top:20px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.25),transparent 70%);top:-80px;right:-60px;pointer-events:none}
+.hero-icon{width:72px;height:72px;flex-shrink:0;border-radius:var(--shape-lg);overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.25);background:rgba(0,0,0,.1)}
+.hero-icon svg{width:100%;height:100%;display:block}
+.hero-info{flex:1;min-width:0;position:relative;z-index:1}
+.hero-info .tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(0,0,0,.14);padding:3px 8px;border-radius:var(--shape-full);margin-bottom:4px}
+body.dark .hero-info .tag{background:rgba(0,0,0,.35)}
+.hero-info .title{font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.hero-info .desc{font-size:12px;opacity:.85;margin-top:4px;line-height:1.4}
+.section-h{display:flex;align-items:center;justify-content:space-between;margin:22px 0 12px}
+.section-h h2{margin:0;font-size:16px;font-weight:600;letter-spacing:-.01em}
+.section-h .count{font-size:12px;font-weight:600;color:var(--on-surface-variant);background:var(--surface-container-high);padding:4px 10px;border-radius:var(--shape-full)}
+.app-card{display:flex;flex-direction:column;gap:14px;padding:16px;background:var(--surface-container-low);border:1px solid var(--outline-variant);border-radius:var(--shape-xl);margin-bottom:12px;transition:border-color .2s var(--ease),background-color .2s var(--ease)}
+.app-card:hover{border-color:var(--primary);background:var(--surface-container)}
+.app-row{display:flex;align-items:center;gap:14px}
+.app-icon{width:56px;height:56px;flex-shrink:0;border-radius:var(--shape-lg);overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.15);background:var(--surface-container-high)}
+.app-icon svg{width:100%;height:100%;display:block}
+.app-info{flex:1;min-width:0}
+.app-info .name{font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--on-surface);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app-info .dev{font-size:12px;color:var(--on-surface-variant);margin-top:2px}
+.app-info .meta{display:flex;gap:6px;align-items:center;margin-top:6px;font-size:11px;color:var(--on-surface-variant)}
+.app-info .meta .dot{width:2px;height:2px;border-radius:50%;background:currentColor;opacity:.6}
+.app-desc{font-size:13px;line-height:1.5;color:var(--on-surface-variant);margin:0}
+.app-actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{height:44px;padding:0 22px;border-radius:var(--shape-full);font-weight:600;font-size:14px;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:filter .15s ease,transform .12s ease;white-space:nowrap;flex:1;min-width:130px}
+.btn.primary{background:var(--primary);color:var(--on-primary)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn:active{transform:scale(.97)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn svg{width:18px;height:18px}
+.state{text-align:center;padding:60px 20px;color:var(--on-surface-variant)}
+.state h3{margin:0 0 8px;font-size:16px;color:var(--on-surface)}
+.state p{margin:0 0 20px;font-size:13px;line-height:1.5}
+.state .btn{max-width:220px;margin:0 auto;flex:0 0 auto}
+.spinner{width:44px;height:44px;border-radius:50%;border:3px solid var(--surface-container-high);border-top-color:var(--primary);animation:spin 1s linear infinite;margin:0 auto 16px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--inverse-surface);color:var(--inverse-on-surface);padding:12px 18px;border-radius:var(--shape-full);font-size:13px;font-weight:500;opacity:0;pointer-events:none;z-index:200;transition:opacity .22s ease,transform .22s ease;max-width:90vw;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.ripple{position:absolute;border-radius:50%;background:currentColor;opacity:.18;transform:scale(0);animation:rippleAnim .6s ease-out;pointer-events:none}
+@keyframes rippleAnim{to{transform:scale(2.5);opacity:0}}
+.help-screen{max-width:720px;margin:0 auto;padding:20px;animation:fadeIn .3s var(--ease)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.help-hero{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--primary-container),var(--tertiary-container));color:var(--on-primary-container);border-radius:var(--shape-xl);padding:20px;margin-bottom:16px;position:relative;overflow:hidden}
+.help-hero::after{content:'';position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.25),transparent 70%);top:-60px;right:-40px;pointer-events:none}
+.help-icon{width:56px;height:56px;border-radius:var(--shape-lg);background:rgba(0,0,0,.15);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+.help-icon svg{width:30px;height:30px}
+.help-title{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.help-sub{font-size:12px;opacity:.8;margin-top:2px}
+.help-banner{display:flex;align-items:center;gap:12px;background:var(--primary-container);color:var(--on-primary-container);border-radius:var(--shape-lg);padding:14px 16px;margin-bottom:16px;font-size:13px;line-height:1.5;font-weight:500}
+.help-banner svg{width:24px;height:24px;flex-shrink:0}
+.help-banner code{font-family:ui-monospace,monospace;font-size:12px;background:rgba(0,0,0,.12);padding:1px 6px;border-radius:5px}
+body.dark .help-banner code{background:rgba(0,0,0,.3)}
+.help-steps{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.step{display:flex;gap:14px;background:var(--surface-container-low);border:1px solid var(--outline-variant);border-radius:var(--shape-lg);padding:16px}
+.step-num{width:32px;height:32px;flex-shrink:0;border-radius:var(--shape-full);background:var(--primary-container);color:var(--on-primary-container);display:grid;place-items:center;font-weight:800;font-size:15px}
+.step-body{flex:1;min-width:0}
+.step-title{font-size:15px;font-weight:700;margin-bottom:6px}
+.step-desc{font-size:13px;line-height:1.55;color:var(--on-surface-variant)}
+.step-desc b{color:var(--on-surface);font-weight:600}
+.step-desc code{font-family:ui-monospace,monospace;font-size:12px;background:var(--surface-container-high);padding:1px 6px;border-radius:6px;color:var(--on-surface);word-break:break-all}
+.step-note{margin-top:8px;font-size:12px;padding:8px 10px;border-radius:10px;background:var(--tertiary-container);color:var(--on-tertiary-container);line-height:1.45}
+.help-tip{background:var(--secondary-container);color:var(--on-secondary-container);border-radius:var(--shape-lg);padding:16px;margin-bottom:20px;font-size:13px;line-height:1.5}
+.help-tip-title{font-weight:700;margin-bottom:6px;font-size:14px}
+.help-back{width:100%;height:52px;font-size:15px}
+</style>
+</head>
+<body class="dark">
+
+<div class="appbar">
+  <svg class="brand-logo" viewBox="0 0 128 128" aria-hidden="true">
+    <defs>
+      <linearGradient id="brBg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8B6DD4"/><stop offset="1" stop-color="#4F378B"/>
+      </linearGradient>
+    </defs>
+    <rect width="128" height="128" rx="34" fill="url(#brBg)"/>
+    <path d="M34 56 h60 a6 6 0 0 1 6 6 l-4 40 a6 6 0 0 1 -6 6 H38 a6 6 0 0 1 -6 -6 l-4 -40 a6 6 0 0 1 6 -6 z" fill="#F5EFFF"/>
+    <path d="M50 56 v-10 a14 14 0 0 1 28 0 v10" fill="none" stroke="#F5EFFF" stroke-width="6" stroke-linecap="round"/>
+    <path d="M52 78 L76 98 M76 78 L52 98" stroke="#4F378B" stroke-width="6" stroke-linecap="round"/>
+  </svg>
+  <div>
+    <h1>Xono Store</h1>
+    <div class="sub">Приложения от Xono Space</div>
+  </div>
+  <div class="spacer"></div>
+  <button class="icon-btn" id="refreshBtn" aria-label="Обновить" title="Обновить каталог">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+      <path d="M21 3v5h-5"/>
+      <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+      <path d="M8 16H3v5"/>
+    </svg>
+  </button>
+  <button class="icon-btn" id="themeToggle" aria-label="Тема">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="themeIcon">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+</div>
+
+<div class="wrap" id="storeWrap">
+  <div id="loadingState" class="state">
+    <div class="spinner"></div>
+    <h3>Загрузка каталога…</h3>
+    <p>Получаем список приложений от Xono Space</p>
+  </div>
+
+  <div id="errorState" class="state" hidden>
+    <h3>Не удалось загрузить</h3>
+    <p>Проверь интернет и попробуй снова.</p>
+    <button class="btn primary" id="retryBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+        <path d="M21 3v5h-5"/>
+      </svg>
+      Повторить
+    </button>
+  </div>
+
+  <div id="content" hidden>
+    <div class="hero" id="hero">
+      <div class="hero-icon" id="heroIcon"></div>
+      <div class="hero-info">
+        <span class="tag">Рекомендуем</span>
+        <div class="title" id="heroTitle">—</div>
+        <div class="desc" id="heroDesc">—</div>
+      </div>
+    </div>
+    <div class="section-h">
+      <h2>Все приложения</h2>
+      <span class="count" id="appCount">0</span>
+    </div>
+    <div id="appsList"></div>
+  </div>
+</div>
+
+<div id="helpScreen" class="help-screen" hidden>
+  <div class="help-hero">
+    <div class="help-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>
+      </svg>
+    </div>
+    <div>
+      <div class="help-title">Как установить APK</div>
+      <div class="help-sub">5 шагов · от Xono Space</div>
+    </div>
+  </div>
+
+  <div class="help-banner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+    </svg>
+    <div>APK уже скачан в <b>Download</b>. Осталось установить.</div>
+  </div>
+
+  <div class="help-steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Открой файловый менеджер</div><div class="step-desc">Зайди в приложение <b>«Файлы»</b> / <b>«Менеджер файлов»</b> на телефоне.</div></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Найди папку Download</div><div class="step-desc">Файл <code>.apk</code> сохранён в <b>Download</b> (Загрузки). Тапни по нему.</div></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Разреши установку</div><div class="step-desc">Android покажет предупреждение <b>«Установка неизвестных приложений заблокирована»</b>. Нажми <b>«Настройки»</b> → включи <b>«Разрешить установку из этого источника»</b> → <b>Назад</b>.</div></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><div class="step-title">Установить</div><div class="step-desc">Нажми <b>«Установить»</b>. Если Play Protect ругается — <b>«Всё равно установить»</b>. Это норма для APK не из Play Store.</div><div class="step-note">APK подписан Xono Space, никакого вируса. Предупреждение Android универсальное для всех сторонних APK.</div></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-body"><div class="step-title">Готово!</div><div class="step-desc">Иконка приложения появится на главном экране. Открой и пользуйся 💜</div></div></div>
+  </div>
+
+  <div class="help-tip">
+    <div class="help-tip-title">💡 Обновления</div>
+    <div>Когда Xono Space выпустит новую версию, в Store появится свежий APK. Скачай и установи поверх старой — <b>данные сохранятся</b>. Удалять старое приложение не нужно.</div>
+  </div>
+
+  <button class="btn primary help-back" id="helpBack">Вернуться в Store</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   НАСТРОЙКА — твой репозиторий
+   ============================================================ */
+const CATALOG_URL = 'https://davidchekushka-hue.github.io/xonocatalog/catalog.json';
+
+let APPS = [];
+let loading = false;
+
+async function loadCatalog(showLoading = true){
+  if(loading) return;
+  loading = true;
+  if(showLoading){
+    document.getElementById('loadingState').hidden = false;
+    document.getElementById('errorState').hidden = true;
+    document.getElementById('content').hidden = true;
+  }
+  const refreshBtn = document.getElementById('refreshBtn');
+  refreshBtn.classList.add('spinning');
+  try {
+    const res = await fetch(CATALOG_URL + '?t=' + Date.now(), { cache: 'no-store' });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if(!data.apps || !Array.isArray(data.apps)) throw new Error('bad format');
+    APPS = data.apps;
+    renderApps();
+    document.getElementById('loadingState').hidden = true;
+    document.getElementById('errorState').hidden = true;
+    document.getElementById('content').hidden = false;
+    if(showLoading) showToast('Каталог загружен · ' + APPS.length + ' прил.');
+  } catch(e) {
+    console.warn('Catalog error:', e);
+    document.getElementById('loadingState').hidden = true;
+    document.getElementById('errorState').hidden = false;
+    document.getElementById('content').hidden = true;
+    if(showLoading) showToast('Не удалось загрузить каталог');
+  } finally {
+    refreshBtn.classList.remove('spinning');
+    loading = false;
+  }
+}
+
+function renderApps(){
+  if(APPS.length === 0){
+    document.getElementById('content').hidden = true;
+    document.getElementById('errorState').hidden = false;
+    document.querySelector('#errorState h3').textContent = 'Каталог пуст';
+    document.querySelector('#errorState p').textContent = 'Скоро здесь появятся приложения.';
+    return;
+  }
+  const first = APPS[0];
+  document.getElementById('heroIcon').innerHTML = first.iconSvg || '';
+  document.getElementById('heroTitle').textContent = first.name;
+  document.getElementById('heroDesc').textContent = (first.description || '').slice(0, 80) + ((first.description || '').length > 80 ? '…' : '');
+  document.getElementById('appCount').textContent = APPS.length;
+  document.getElementById('appsList').innerHTML = APPS.map(app => `
+    <div class="app-card" data-id="${escape(app.id)}">
+      <div class="app-row">
+        <div class="app-icon">${app.iconSvg || ''}</div>
+        <div class="app-info">
+          <div class="name">${escape(app.name)}</div>
+          <div class="dev">${escape(app.dev || 'Xono Space')}</div>
+          <div class="meta">
+            <span>v${escape(app.version || '1.0')}</span>
+            ${app.size ? `<span class="dot"></span><span>${escape(app.size)}</span>` : ''}
+            ${app.category ? `<span class="dot"></span><span>${escape(app.category)}</span>` : ''}
+          </div>
+        </div>
+      </div>
+      <p class="app-desc">${escape(app.description || '')}</p>
+      <div class="app-actions">
+        <button class="btn primary" data-action="install" data-id="${escape(app.id)}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>
+          </svg>
+          Скачать APK
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function escape(s){
+  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function installApp(app){
+  if(!app.apkUrl){ showToast('Ссылка на APK не указана'); return; }
+  showToast('Скачиваем ' + app.name + '…');
+  const a = document.createElement('a');
+  a.href = app.apkUrl;
+  a.download = app.filename || (app.id + '.apk');
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  try { localStorage.setItem('xono_installed_' + app.id, Date.now()); } catch(e) {}
+  setTimeout(() => {
+    document.getElementById('storeWrap').hidden = true;
+    document.getElementById('helpScreen').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showToast('APK сохраняется в Download ✓');
+  }, 900);
+}
+
+document.getElementById('appsList').addEventListener('click', e => {
+  const btn = e.target.closest('[data-action="install"]');
+  if(!btn) return;
+  const app = APPS.find(a => a.id === btn.dataset.id);
+  if(app) installApp(app);
+});
+
+document.getElementById('retryBtn').onclick = () => loadCatalog(true);
+document.getElementById('refreshBtn').onclick = () => loadCatalog(true);
+document.getElementById('helpBack').onclick = () => {
+  document.getElementById('helpScreen').hidden = true;
+  document.getElementById('storeWrap').hidden = false;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+const themeBtn = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const sunIcon = '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>';
+const moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+let isDark = true;
+try { isDark = localStorage.getItem('xono_store_theme') !== 'light'; } catch(e) {}
+document.body.classList.toggle('dark', isDark);
+themeIcon.innerHTML = isDark ? moonIcon : sunIcon;
+themeBtn.onclick = () => {
+  isDark = !isDark;
+  document.body.classList.toggle('dark', isDark);
+  themeIcon.innerHTML = isDark ? moonIcon : sunIcon;
+  try { localStorage.setItem('xono_store_theme', isDark ? 'dark' : 'light'); } catch(e) {}
+};
+
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+document.addEventListener('pointerdown', e => {
+  const btn = e.target.closest('button');
+  if(!btn || btn.disabled) return;
+  const rect = btn.getBoundingClientRect();
+  const size = Math.max(rect.width, rect.height);
+  const x = (e.clientX ?? rect.left + rect.width/2) - rect.left - size/2;
+  const y = (e.clientY ?? rect.top + rect.height/2) - rect.top - size/2;
+  const r = document.createElement('span');
+  r.className = 'ripple';
+  r.style.width = r.style.height = size + 'px';
+  r.style.left = x + 'px';
+  r.style.top = y + 'px';
+  btn.appendChild(r);
+  setTimeout(() => r.remove(), 620);
+});
+
+loadCatalog(true);
+</script>
+</body>
+</html>
