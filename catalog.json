@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-15T12:00:00Z",
+  "updated": "2026-11-16T12:00:00Z",
   "publisher": "Xono Space",
   "apps": [
     {
@@ -9,12 +9,26 @@
       "version": "1.0",
       "versionCode": 1,
       "package": "com.xono.browser",
-      "size": "8.4 MB",
+      "size": "17,38 МБ",
       "category": "Browser",
       "description": "Браузер от Xono Space со стилистикой Material You. Вкладки, история, загрузки, Code Lab для HTML/CSS/JS и встроенный просмотр файлов.",
       "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><defs><linearGradient id='xonoBg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#8B6DD4'/><stop offset='1' stop-color='#4F378B'/></linearGradient></defs><rect width='128' height='128' rx='28' fill='url(#xonoBg)'/><path d='M38 38 L90 90 M90 38 L38 90' stroke='#F5EFFF' stroke-width='14' stroke-linecap='round'/><circle cx='64' cy='64' r='10' fill='#EFB8C8'/></svg>",
       "apkUrl": "https://davidchekushka-hue.github.io/xonocatalog/apk/Xono%20You_1.apk",
-      "filename": "Xono-You-1.apk"
+      "filename": "Xono You_1.apk"
+    },
+    {
+      "id": "xono-radio",
+      "name": "Xono Radio",
+      "dev": "Xono Space",
+      "version": "1.0",
+      "versionCode": 1,
+      "package": "space.xono.radio",
+      "size": "17,28 МБ",
+      "category": "Music",
+      "description": "Локальный музыкальный плеер от Xono Space со стилистикой Material You. Выбирай свои MP3, FLAC, WAV с устройства и слушай прямо в приложении. Фоновое воспроизведение и управление с экрана блокировки.",
+      "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><defs><linearGradient id='rBg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#8B6DD4'/><stop offset='1' stop-color='#4F378B'/></linearGradient></defs><rect width='128' height='128' rx='28' fill='url(#rBg)'/><path d='M44 96 V44 a6 6 0 0 1 6 -6 h34 a6 6 0 0 1 6 6 v52' fill='none' stroke='#F5EFFF' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='54' cy='100' r='10' fill='#F5EFFF'/><circle cx='88' cy='96' r='10' fill='#F5EFFF'/><path d='M64 44 v40 M88 44 v40' stroke='#F5EFFF' stroke-width='5' stroke-linecap='round'/><circle cx='64' cy='60' r='4' fill='#EFB8C8'/></svg>",
+      "apkUrl": "https://davidchekushka-hue.github.io/xonocatalog/apk/Xono%20Radio_1.apk",
+      "filename": "Xono Radio_1.apk"
     }
   ]
 }
