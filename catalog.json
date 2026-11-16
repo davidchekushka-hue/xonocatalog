@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-16T12:00:00Z",
+  "updated": "2026-11-16T15:00:00Z",
   "publisher": "Xono Space",
   "apps": [
     {
@@ -9,10 +9,10 @@
       "version": "1.0",
       "versionCode": 1,
       "package": "com.xono.browser",
-      "size": "17,38 МБ",
+      "size": "8.4 MB",
       "category": "Browser",
-      "description": "Браузер от Xono Space со стилистикой Material You. Вкладки, история, загрузки, Code Lab для HTML/CSS/JS и встроенный просмотр файлов.",
-      "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><defs><linearGradient id='xonoBg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#8B6DD4'/><stop offset='1' stop-color='#4F378B'/></linearGradient></defs><rect width='128' height='128' rx='28' fill='url(#xonoBg)'/><path d='M38 38 L90 90 M90 38 L38 90' stroke='#F5EFFF' stroke-width='14' stroke-linecap='round'/><circle cx='64' cy='64' r='10' fill='#EFB8C8'/></svg>",
+      "description": "Браузер от Xono Space со стилистикой Material You. Вкладки, история, загрузки, Code Lab.",
+      "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><defs><linearGradient id='xBg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#8B6DD4'/><stop offset='1' stop-color='#4F378B'/></linearGradient></defs><rect width='128' height='128' rx='28' fill='url(#xBg)'/><path d='M38 38 L90 90 M90 38 L38 90' stroke='#F5EFFF' stroke-width='14' stroke-linecap='round'/><circle cx='64' cy='64' r='10' fill='#EFB8C8'/></svg>",
       "apkUrl": "https://davidchekushka-hue.github.io/xonocatalog/apk/Xono%20You_1.apk",
       "filename": "Xono You_1.apk"
     },
@@ -23,12 +23,26 @@
       "version": "1.0",
       "versionCode": 1,
       "package": "space.xono.radio",
-      "size": "17,28 МБ",
+      "size": "2.1 MB",
       "category": "Music",
-      "description": "Локальный музыкальный плеер от Xono Space со стилистикой Material You. Выбирай свои MP3, FLAC, WAV с устройства и слушай прямо в приложении. Фоновое воспроизведение и управление с экрана блокировки.",
+      "description": "Локальный музыкальный плеер от Xono Space со стилистикой Material You.",
       "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><defs><linearGradient id='rBg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#8B6DD4'/><stop offset='1' stop-color='#4F378B'/></linearGradient></defs><rect width='128' height='128' rx='28' fill='url(#rBg)'/><path d='M44 96 V44 a6 6 0 0 1 6 -6 h34 a6 6 0 0 1 6 6 v52' fill='none' stroke='#F5EFFF' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/><circle cx='54' cy='100' r='10' fill='#F5EFFF'/><circle cx='88' cy='96' r='10' fill='#F5EFFF'/><path d='M64 44 v40 M88 44 v40' stroke='#F5EFFF' stroke-width='5' stroke-linecap='round'/><circle cx='64' cy='60' r='4' fill='#EFB8C8'/></svg>",
       "apkUrl": "https://davidchekushka-hue.github.io/xonocatalog/apk/Xono%20Radio_1.apk",
       "filename": "Xono Radio_1.apk"
+    },
+    {
+      "id": "xono-assistant",
+      "name": "Xono Assistant",
+      "dev": "Xono Space",
+      "version": "1.0",
+      "versionCode": 1,
+      "package": "space.xono.assistant",
+      "size": "1.5 MB",
+      "category": "AI",
+      "description": "Умный ИИ-помощник от Xono Space. Задавайте вопросы, генерируйте идеи, пишите код или просто общайтесь. Поддержка OpenAI и Gemini.",
+      "iconSvg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'><defs><linearGradient id='assBg' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#3a00ff'/><stop offset='1' stop-color='#d500ff'/></linearGradient></defs><rect width='128' height='128' rx='28' fill='url(#assBg)'/><path d='M32 40 L68 80 M68 40 L32 80' stroke='#fff' stroke-width='14' stroke-linecap='square'/><path d='M96 24 Q96 34 106 34 Q96 34 96 44 Q96 34 86 34 Q96 34 96 24 Z' fill='#fff'/><path d='M112 48 Q112 53 117 53 Q112 53 112 58 Q112 53 107 53 Q112 53 112 48 Z' fill='#fff'/></svg>",
+      "apkUrl": "https://davidchekushka-hue.github.io/xonocatalog/apk/Xono%20Assistant_1.apk",
+      "filename": "Xono Assistant_1.apk"
     }
   ]
 }
